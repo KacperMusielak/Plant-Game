@@ -330,8 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c01990db89efad479b36a80e6322e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upSpeed: 0.4
-  horizontalSpeed: 0.3
+  upSpeed: 0.1
+  horizontalSpeed: 0.15
 --- !u!120 &842091468
 LineRenderer:
   m_ObjectHideFlags: 0
