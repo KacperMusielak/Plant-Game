@@ -253,3 +253,7 @@ Oil Siege/Library/
 *.sln
 
 Oil_NoTiles/\.vscode/
+
+Library/
+
+obj/

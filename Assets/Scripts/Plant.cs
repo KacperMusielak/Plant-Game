@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using System;
 
@@ -16,12 +15,13 @@ public class Plant : MonoBehaviour
         scaling = transform.localScale;
         offset = transform.position;
         transform.rotation = new Quaternion(transform.rotation.x + countRotation()/2, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-
 	}
 	
 
 	void Update ()
     {
+        //Vector3 targetPosFlattened = new Vector3(sun.transform.position.x, sun.transform.position.y, 0);
+        //transform.LookAt(targetPosFlattened);
         grow();
 
     }
