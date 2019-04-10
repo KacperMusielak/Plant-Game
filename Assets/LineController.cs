@@ -34,34 +34,85 @@ public class LineController : MonoBehaviour
         setDestination();
         changeDirection();
         plantCollider.center = pos;
-        if (pos.y > 10 || points < 0 || collision) return;
+        EnergyBar.energy = points;
+        if (pos.y > 10 || points < 0) return;
         if (timer > timeToUpdate)
         {
             timer = 0;
             // CODE HERE
-            pos.y += upSpeed;
-            switch (direction)
+            if (!collision)
             {
-                case DirectionEnum.NONE:
-                    break;
-                case DirectionEnum.LEFT:
-                    pos.x -= horizontalSpeed;
-                    break;
-                case DirectionEnum.RIGHT:
-                    pos.x += horizontalSpeed;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                pos.y += upSpeed;
+                switch (direction)
+                {
+                    case DirectionEnum.NONE:
+                        break;
+                    case DirectionEnum.LEFT:
+                        if (Math.Abs(pos.x - destiny.x) > horizontalSpeed)
+                        {
+                            pos.x -= horizontalSpeed;
+                        }
+                        else
+                        {
+                            pos.x -= Math.Abs(pos.x - destiny.x);
+                        }
+                        break;
+                    case DirectionEnum.RIGHT:
+                        if (Math.Abs(pos.x - destiny.x) > horizontalSpeed)
+                        {
+                            pos.x += horizontalSpeed;
+                        }
+                        else
+                        {
+                            pos.x += Math.Abs(pos.x - destiny.x);
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+                direction = DirectionEnum.NONE;
             }
-            direction = DirectionEnum.NONE;
+            else
+            {
+                switch (direction)
+                {
+                    case DirectionEnum.NONE:
+                        break;
+                    case DirectionEnum.LEFT:
+                        if (Math.Abs(pos.x - destiny.x) > horizontalSpeed)
+                        {
+                            pos.x -= horizontalSpeed;
+                        }
+                        else
+                        {
+                            pos.x -= Math.Abs(pos.x - destiny.x);
+                        }
+                        break;
+                    case DirectionEnum.RIGHT:
+                        if (Math.Abs(pos.x - destiny.x) > horizontalSpeed)
+                        {
+                            pos.x += horizontalSpeed;
+                        }
+                        else
+                        {
+                            pos.x += Math.Abs(pos.x - destiny.x);
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+                direction = DirectionEnum.NONE;
+                collision = false;
+                points -= 10;
+            }
+                lineRenderer.positionCount++;
+                lineRenderer.SetPosition(index, pos);
+                index++;
+                points-=4;
+                Debug.Log(points);
+                addPoints();
+            
 
-            lineRenderer.positionCount++;
-            lineRenderer.SetPosition(index, pos);
-            index++;
-            points--;
-            //Debug.Log(points);
-            Debug.Log(lineRenderer.bounds);
-            addPoints();
         }
         timer += Time.deltaTime;
     }
@@ -85,7 +136,6 @@ public class LineController : MonoBehaviour
         {
             if (collider.bounds.Intersects(plantCollider.bounds))
             {
-                Debug.Log("Obstacle");
                 collision = true;
             }
         }
@@ -97,7 +147,6 @@ public class LineController : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             destiny = ray.origin;
-            Debug.Log(destiny);
         }
     }
 
@@ -108,6 +157,10 @@ public class LineController : MonoBehaviour
             if (bonusPoint.GetComponent<Collider>().bounds.Intersects(plantCollider.bounds))
             {
                 points += 100;
+                if (points > 100)
+                {
+                    points = 100;
+                }
                 bonusPoints.Remove(bonusPoint);
                 bonusPoint.SetActive(false);
                 break;
