@@ -53,15 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Bonus.cs" />
-     <Compile Include="Assets\ColliderBounds.cs" />
      <Compile Include="Assets\LineController.cs" />
      <Compile Include="Assets\Scripts\DirectionEnum.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Ground.cs" />
-     <Compile Include="Assets\Scripts\Plant.cs" />
-     <Compile Include="Assets\Scripts\Seed.cs" />
-     <Compile Include="Assets\Scripts\Sun.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Kacper/Documents/moblie plant/Plant-Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
