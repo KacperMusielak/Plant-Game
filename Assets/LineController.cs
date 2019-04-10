@@ -13,6 +13,7 @@ public class LineController : MonoBehaviour
 
     public List<Collider> obstacleColliders;
     public List<GameObject> bonusPoints;
+    private BoxCollider plantCollider;
     private LineRenderer lineRenderer;
     private Vector3 pos = Vector3.zero;
     private int index = 1;
@@ -24,7 +25,7 @@ public class LineController : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-
+        plantCollider = GetComponent<BoxCollider>();
     }
 
     void Update()
@@ -32,6 +33,7 @@ public class LineController : MonoBehaviour
         collideWithObstacle();
         setDestination();
         changeDirection();
+        plantCollider.center = pos;
         if (pos.y > 10 || points < 0 || collision) return;
         if (timer > timeToUpdate)
         {
@@ -57,7 +59,8 @@ public class LineController : MonoBehaviour
             lineRenderer.SetPosition(index, pos);
             index++;
             points--;
-            Debug.Log(points);
+            //Debug.Log(points);
+            Debug.Log(lineRenderer.bounds);
             addPoints();
         }
         timer += Time.deltaTime;
@@ -80,7 +83,7 @@ public class LineController : MonoBehaviour
     {
         foreach (Collider collider in obstacleColliders)
         {
-            if (collider.bounds.Intersects(lineRenderer.bounds))
+            if (collider.bounds.Intersects(plantCollider.bounds))
             {
                 Debug.Log("Obstacle");
                 collision = true;
@@ -102,7 +105,7 @@ public class LineController : MonoBehaviour
     {
         foreach (GameObject bonusPoint in bonusPoints)
         {           
-            if (bonusPoint.GetComponent<Collider>().bounds.Intersects(lineRenderer.bounds))
+            if (bonusPoint.GetComponent<Collider>().bounds.Intersects(plantCollider.bounds))
             {
                 points += 100;
                 bonusPoints.Remove(bonusPoint);
