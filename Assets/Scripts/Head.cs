@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Head : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip clang, pickup;
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,6 +23,7 @@ public class Head : MonoBehaviour
     {
         if (collider.tag == "Pickup")
         {
+            audioSource.PlayOneShot(pickup);
             FindObjectOfType<PlantController>().GrowTicks += collider.gameObject.GetComponent<Pickup>().Charges;
             Destroy(collider.gameObject);
         }
@@ -28,7 +32,7 @@ public class Head : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Obstacle")
-        {
+        {         
             Debug.Log(collision.gameObject.tag);
             FindObjectOfType<GameController>().GameOver();
         }
@@ -37,5 +41,7 @@ public class Head : MonoBehaviour
             Debug.Log(collision.gameObject.tag);
             FindObjectOfType<GameController>().GameOver();
         }
+        audioSource.PlayOneShot(clang);
     }
+
 }

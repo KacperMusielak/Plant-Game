@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlantController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlantController : MonoBehaviour
     public float Speed = 1f;
     public float MovementGrid = 0.5f;
     public int GrowTicks = 10;
+    public int level = 1;
 
     private float _timer = 0;
     Vector3 _directionVector3 = Vector3.up;
@@ -22,6 +24,7 @@ public class PlantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        EnergyBar.energy = GrowTicks;
         GetInputVector();
 
         if (_timer > Speed)
@@ -36,6 +39,22 @@ public class PlantController : MonoBehaviour
             }
         }
         _timer += Time.deltaTime;
+
+        if (_head.transform.position.y > 3.6f)
+        {
+            level++;
+            if (level > 3)
+            {
+                SceneManager.LoadScene("Victory");
+
+            }
+            else
+            {
+                Debug.Log(level);
+                SceneManager.LoadScene("Level" + level);
+            }
+
+        }
     }
 
     private void SpawnTailObject(Vector3 pos)
