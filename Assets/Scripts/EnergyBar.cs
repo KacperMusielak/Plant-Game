@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public class EnergyBar : MonoBehaviour
 {
     Image energyBar;
-    float maxEnergy = 10f;
-    public static float energy;
+    public static float MaxEnergy = 10f;
+    public static float Energy;
 
     void Start()
     {
         energyBar = GetComponent<Image>();
-        energy = maxEnergy;
+        Energy = MaxEnergy;
     }
 
     void Update()
     {
-        energyBar.fillAmount = energy / maxEnergy;
+        energyBar.fillAmount = Energy / MaxEnergy;
     }
 }

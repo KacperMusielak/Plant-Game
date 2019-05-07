@@ -2,5 +2,5 @@
 
 public class Pickup : MonoBehaviour
 {
-    public int Charges = 5;
+    public int Charges = 7;
 }

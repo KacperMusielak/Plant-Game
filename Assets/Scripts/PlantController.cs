@@ -7,51 +7,60 @@ public class PlantController : MonoBehaviour
     public GameObject TailPrefab;
     public float Speed = 1f;
     public float MovementGrid = 0.5f;
-    public int GrowTicks = 10;
-    public int level = 1;
+    public int MaxGrowTicks = 10;
+    public int Level = 1;
 
+    private int _growTicks = 10;
     private float _timer = 0;
     Vector3 _directionVector3 = Vector3.up;
     private Head _head;
     private List<GameObject> _tailList = new List<GameObject>();
 
+    public int GrowTicks
+    {
+        get => _growTicks;
+        set => _growTicks = value > MaxGrowTicks ? MaxGrowTicks : value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        _growTicks = MaxGrowTicks;
         _head = GetComponentInChildren<Head>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnergyBar.energy = GrowTicks;
+        EnergyBar.Energy = _growTicks;
+        EnergyBar.MaxEnergy = MaxGrowTicks;
         GetInputVector();
 
         if (_timer > Speed)
         {
             _timer = 0;
             Vector3 lastHeadPos = _head.transform.position;
-            if (GrowTicks > 0)
+            if (_growTicks > 0)
             {
                 MovePlant();
                 SpawnTailObject(lastHeadPos);
-                GrowTicks--;
+                _growTicks--;
             }
         }
         _timer += Time.deltaTime;
 
-        if (_head.transform.position.y > 3.6f)
+        if (_head.transform.position.y > 4.2f)
         {
-            level++;
-            if (level > 3)
+            Level++;
+            if (Level > 3)
             {
                 SceneManager.LoadScene("Victory");
 
             }
             else
             {
-                Debug.Log(level);
-                SceneManager.LoadScene("Level" + level);
+                Debug.Log(Level);
+                SceneManager.LoadScene("Level" + Level);
             }
 
         }
