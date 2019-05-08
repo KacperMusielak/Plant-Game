@@ -65,9 +65,11 @@
     <Compile Include="Assets\Scripts\EnergyBar.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Head.cs" />
+    <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\Mover.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\PlantController.cs" />
+    <Compile Include="Assets\Scripts\SwipeManager.cs" />
     <Compile Include="Assets\Scripts\Tail.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Repo/Plant-Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(SwipeManager))]
 public class PlantController : MonoBehaviour
 {
     public GameObject TailPrefab;
@@ -13,6 +14,7 @@ public class PlantController : MonoBehaviour
     private int _growTicks = 10;
     private float _timer = 0;
     Vector3 _directionVector3 = Vector3.up;
+    private Vector3 _directionVector3last = Vector3.zero;
     private Head _head;
     private List<GameObject> _tailList = new List<GameObject>();
 
@@ -27,6 +29,35 @@ public class PlantController : MonoBehaviour
     {
         _growTicks = MaxGrowTicks;
         _head = GetComponentInChildren<Head>();
+        SwipeManager swipeManager = GetComponent<SwipeManager>();
+        SwipeManager.OnSwipeDetected += HandleSwipe;
+    }
+
+    void HandleSwipe(Swipe swipe, Vector2 swipeVelocity)
+    {
+        _directionVector3last = _directionVector3;
+
+        switch (swipe)
+        {
+            case Swipe.None:
+                break;
+            case Swipe.Up:
+                if (_directionVector3last != Vector3.down)
+                    _directionVector3 = Vector3.up;
+                break;
+            case Swipe.Down:
+                if (_directionVector3last != Vector3.up)
+                    _directionVector3 = Vector3.down;
+                break;
+            case Swipe.Left:
+                if (_directionVector3last != Vector3.right)
+                    _directionVector3 = Vector3.left;
+                break;
+            case Swipe.Right:
+                if (_directionVector3last != Vector3.left)
+                    _directionVector3 = Vector3.right;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -34,7 +65,7 @@ public class PlantController : MonoBehaviour
     {
         EnergyBar.Energy = _growTicks;
         EnergyBar.MaxEnergy = MaxGrowTicks;
-        GetInputVector();
+        //GetInputVector();
 
         if (_timer > Speed)
         {
@@ -46,7 +77,12 @@ public class PlantController : MonoBehaviour
                 SpawnTailObject(lastHeadPos);
                 _growTicks--;
             }
+            else
+            {
+                FindObjectOfType<GameController>().GameOver();
+            }
         }
+
         _timer += Time.deltaTime;
 
         if (_head.transform.position.y > 4.2f)

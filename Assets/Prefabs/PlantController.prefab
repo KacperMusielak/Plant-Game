@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647640084738865736}
   - component: {fileID: 2442413929926233566}
+  - component: {fileID: 815928340}
   m_Layer: 0
   m_Name: PlantController
   m_TagString: GameController
@@ -46,10 +47,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TailPrefab: {fileID: 9133517221067333137, guid: f7db9e17fc2f340429fbd922b463382d,
     type: 3}
-  Speed: 0.25
+  Speed: 0.2
   MovementGrid: 0.5
-  GrowTicks: 10
-  level: 1
+  MaxGrowTicks: 10
+  Level: 1
+--- !u!114 &815928340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597867279369171069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c43465b1f5031149b05a310002ba054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSwipeLength: 1
+  triggerSwipeAtMinLength: 0
+  useEightDirections: 0
 --- !u!1 &3954091036288878266
 GameObject:
   m_ObjectHideFlags: 0
