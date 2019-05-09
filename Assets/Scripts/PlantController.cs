@@ -11,6 +11,8 @@ public class PlantController : MonoBehaviour
     public int MaxGrowTicks = 10;
     public int Level = 1;
 
+    public static bool IsReady = false;
+
     private int _growTicks = 10;
     private float _timer = 0;
     Vector3 _directionVector3 = Vector3.up;
@@ -27,6 +29,7 @@ public class PlantController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        IsReady = Level != 1;
         _growTicks = MaxGrowTicks;
         _head = GetComponentInChildren<Head>();
         SwipeManager swipeManager = GetComponent<SwipeManager>();
@@ -63,42 +66,47 @@ public class PlantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnergyBar.Energy = _growTicks;
-        EnergyBar.MaxEnergy = MaxGrowTicks;
-        //GetInputVector();
-
-        if (_timer > Speed)
+        if (IsReady)
         {
-            _timer = 0;
-            Vector3 lastHeadPos = _head.transform.position;
-            if (_growTicks > 0)
+            EnergyBar.Energy = _growTicks;
+            EnergyBar.MaxEnergy = MaxGrowTicks;
+            //GetInputVector();
+
+            if (_timer > Speed)
             {
-                MovePlant();
-                SpawnTailObject(lastHeadPos);
-                _growTicks--;
+                _timer = 0;
+                Vector3 lastHeadPos = _head.transform.position;
+                if (_growTicks > 0)
+                {
+                    MovePlant();
+                    SpawnTailObject(lastHeadPos);
+                    _growTicks--;
+                }
+                else
+                {
+                    FindObjectOfType<GameController>().GameOver();
+                }
             }
-            else
-            {
-                FindObjectOfType<GameController>().GameOver();
-            }
+
+            _timer += Time.deltaTime;
+            ManageLevels();
         }
+    }
 
-        _timer += Time.deltaTime;
-
+    private void ManageLevels()
+    {
         if (_head.transform.position.y > 4.2f)
         {
             Level++;
             if (Level > 3)
             {
                 SceneManager.LoadScene("Victory");
-
             }
             else
             {
                 Debug.Log(Level);
                 SceneManager.LoadScene("Level" + Level);
             }
-
         }
     }
 
