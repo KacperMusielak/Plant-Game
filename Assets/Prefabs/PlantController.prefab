@@ -48,7 +48,7 @@ MonoBehaviour:
   TailPrefab: {fileID: 9133517221067333137, guid: f7db9e17fc2f340429fbd922b463382d,
     type: 3}
   Speed: 0.2
-  MovementGrid: 0.5
+  MovementGrid: 0.25
   MaxGrowTicks: 10
   Level: 1
 --- !u!114 &815928340
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c43465b1f5031149b05a310002ba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSwipeLength: 1
+  minSwipeLength: 0.5
   triggerSwipeAtMinLength: 0
   useEightDirections: 0
 --- !u!1 &3954091036288878266
@@ -173,7 +173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &4478531351228697710
 MonoBehaviour:
