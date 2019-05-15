@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public Text Charges;
+    public Text collectedPickups;
 
     private PlantController plantController;
     // Start is called before the first frame update
     private void Start()
     {
         Charges = FindObjectOfType<Text>();
+        collectedPickups = FindObjectOfType<Text>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class GameController : MonoBehaviour
             plantController = FindObjectOfType<PlantController>();
         }
             Charges.text = plantController.GrowTicks.ToString("D");
+        collectedPickups.text = plantController.getCollectedPickups().ToString("D") + "/" + plantController.getMaxPickups().ToString("D");
     }
 
     public void GameOver()

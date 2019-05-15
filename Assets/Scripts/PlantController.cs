@@ -14,6 +14,8 @@ public class PlantController : MonoBehaviour
     public static bool IsReady = false;
 
     private int _growTicks = 10;
+    private int collectedPickups = 0;
+    private int maxPickups = 0;
     private float _timer = 0;
     Vector3 _directionVector3 = Vector3.up;
     private Vector3 _directionVector3last = Vector3.zero;
@@ -25,10 +27,22 @@ public class PlantController : MonoBehaviour
         get => _growTicks;
         set => _growTicks = value > MaxGrowTicks ? MaxGrowTicks : value;
     }
-
+    public void collectPickup()
+    {
+        collectedPickups++;
+    }
+    public int getCollectedPickups()
+    {
+        return collectedPickups;
+    }
+    public int getMaxPickups()
+    {
+        return maxPickups;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        maxPickups = GameObject.FindGameObjectsWithTag("Pickup").Length;
         IsReady = Level != 1;
         _growTicks = MaxGrowTicks;
         _head = GetComponentInChildren<Head>();
@@ -97,8 +111,9 @@ public class PlantController : MonoBehaviour
     {
         if (_head.transform.position.y > 4.5f)
         {
+            
             Level++;
-            if (Level > 3)
+            if (Level > 4)
             {
                 SceneManager.LoadScene("Victory");
             }
@@ -107,6 +122,7 @@ public class PlantController : MonoBehaviour
                 Debug.Log(Level);
                 SceneManager.LoadScene("Level" + Level);
             }
+           
         }
     }
 

@@ -25,6 +25,7 @@ public class Head : MonoBehaviour
         {
             audioSource.PlayOneShot(pickup);
             FindObjectOfType<PlantController>().GrowTicks += collider.gameObject.GetComponent<Pickup>().Charges;
+            FindObjectOfType<PlantController>().collectPickup();
             Destroy(collider.gameObject);
         }
     }
