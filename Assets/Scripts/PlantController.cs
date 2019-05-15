@@ -95,7 +95,7 @@ public class PlantController : MonoBehaviour
 
     private void ManageLevels()
     {
-        if (_head.transform.position.y > 4.2f)
+        if (_head.transform.position.y > 4.5f)
         {
             Level++;
             if (Level > 3)
