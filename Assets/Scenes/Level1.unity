@@ -527,9 +527,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "Jeste\u015B rosn\u0105c\u0105 ro\u015Blink\u0105. Twoim zadaniem jest dosta\u0107
     si\u0119 do wy\u0142omu na g\xF3rze. Unikaj przeszk\xF3d oraz zbieraj energie
-    w postaci promyczk\xF3w s\u0142\xF3\u0144ca by dosta\u0107 si\u0119 wy\u017Cej.
-    \n\nSterowanie ro\u015Blink\u0105 odbywa si\u0119 za pomoc\u0105 swipe'\xF3w palcem
-    na ekranie.\n\n\nDotknij, by kontynuowa\u0107 ..."
+    w postaci kropel wody by dosta\u0107 si\u0119 wy\u017Cej. \n\nSterowanie ro\u015Blink\u0105
+    odbywa si\u0119 za pomoc\u0105 swipe'\xF3w palcem na ekranie.\n\n\nDotknij, by
+    kontynuowa\u0107 ..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 496772655}
-    characterCount: 263
+    characterCount: 257
     spriteCount: 0
     spaceCount: 42
     wordCount: 38
