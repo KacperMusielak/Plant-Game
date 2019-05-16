@@ -765,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 360994631943744287, guid: 67d5b153214918440a69660f90086ce2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 360994631943744287, guid: 67d5b153214918440a69660f90086ce2,
         type: 3}
@@ -1048,6 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Charges: {fileID: 0}
+  collectedPickups: {fileID: 0}
 --- !u!1 &1147808503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,7 +1648,7 @@ PrefabInstance:
     - target: {fileID: 360994631943744287, guid: 67d5b153214918440a69660f90086ce2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 360994631943744287, guid: 67d5b153214918440a69660f90086ce2,
         type: 3}
