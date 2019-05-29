@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Charges = FindObjectOfType<Text>();
-        collectedPickups = FindObjectOfType<Text>();
+        collectedPickups = GameObject.Find("CollectedPickups").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         {
             plantController = FindObjectOfType<PlantController>();
         }
-            Charges.text = plantController.GrowTicks.ToString("D");
+            //Charges.text = plantController.GrowTicks.ToString("D");
         collectedPickups.text = plantController.getCollectedPickups().ToString("D") + "/" + plantController.getMaxPickups().ToString("D");
     }
 
