@@ -113,7 +113,7 @@ public class PlantController : MonoBehaviour
         {
             
             Level++;
-            if (Level > 4)
+            if (Level > 5)
             {
                 SceneManager.LoadScene("Victory");
             }
