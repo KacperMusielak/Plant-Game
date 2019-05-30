@@ -64,9 +64,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\EnergyBar.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GIF.cs" />
     <Compile Include="Assets\Scripts\GrowText.cs" />
     <Compile Include="Assets\Scripts\Head.cs" />
+    <Compile Include="Assets\Scripts\Info\NextLevelButton.cs" />
+    <Compile Include="Assets\Scripts\Info\PickupInfoImage.cs" />
+    <Compile Include="Assets\Scripts\Info\PickupInfoText.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Mover.cs" />

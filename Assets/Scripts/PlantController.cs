@@ -111,16 +111,19 @@ public class PlantController : MonoBehaviour
     {
         if (_head.transform.position.y > 4.5f)
         {
-            
-            Level++;
-            if (Level > 5)
+
+            GameManager.Level = Level + 1;
+            GameManager.MaxPickups = getMaxPickups();
+            GameManager.Pickups = getCollectedPickups();
+
+            if (GameManager.Level > 5)
             {
                 SceneManager.LoadScene("Victory");
             }
             else
             {
                 Debug.Log(Level);
-                SceneManager.LoadScene("Level" + Level);
+                SceneManager.LoadScene("Info");
             }
            
         }
