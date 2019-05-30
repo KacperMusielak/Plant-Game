@@ -8,4 +8,10 @@ public class NextLevelButton : MonoBehaviour
         SceneManager.LoadScene("Level" + GameManager.Level);
     }
 
+    public void Retry()
+    {
+        int level = GameManager.Level - 1;
+        SceneManager.LoadScene("Level" + level);
+    }
+
 }
