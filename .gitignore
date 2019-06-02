@@ -257,3 +257,5 @@ Oil_NoTiles/\.vscode/
 Library/
 
 obj/
+
+*.apk
