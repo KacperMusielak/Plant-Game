@@ -18,7 +18,7 @@ public class PickupInfoImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _timer += Time.deltaTime * _amount / 3f;
+        _timer += Time.deltaTime * _amount;
         _image.fillAmount = Mathf.Lerp(0, _amount, _timer);
     }
 }
