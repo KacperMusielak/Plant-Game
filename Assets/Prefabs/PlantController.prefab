@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c43465b1f5031149b05a310002ba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSwipeLength: 0.5
+  minSwipeLength: 0.3
   triggerSwipeAtMinLength: 0
   useEightDirections: 0
 --- !u!1 &3954091036288878266
