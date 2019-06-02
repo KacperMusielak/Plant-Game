@@ -318,17 +318,22 @@ PrefabInstance:
     - target: {fileID: 2098261785945236297, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
       propertyPath: MoveTime
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2098261785945236297, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
       propertyPath: Offset.x
-      value: -3
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2098261785945236297, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
       propertyPath: IsStopped
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098261785945236297, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
+        type: 3}
+      propertyPath: StopTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8155867166364171401, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
