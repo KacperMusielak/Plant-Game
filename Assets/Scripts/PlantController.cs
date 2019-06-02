@@ -43,7 +43,7 @@ public class PlantController : MonoBehaviour
     void Start()
     {
         maxPickups = GameObject.FindGameObjectsWithTag("Pickup").Length;
-        IsReady = Level != 1;
+        IsReady = false;
         _growTicks = MaxGrowTicks;
         _head = GetComponentInChildren<Head>();
         SwipeManager swipeManager = GetComponent<SwipeManager>();
