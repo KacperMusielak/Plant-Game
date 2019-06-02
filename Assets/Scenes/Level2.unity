@@ -2015,6 +2015,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2098261785945236297, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
+        type: 3}
+      propertyPath: Offset.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098261785945236297, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
+        type: 3}
+      propertyPath: MoveTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8155867166364171401, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -2023,7 +2033,7 @@ PrefabInstance:
     - target: {fileID: 8155867166364171401, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8155867166364171401, guid: a742ad1063bf8b04a91bffd0dd9f99c1,
         type: 3}
