@@ -116,7 +116,7 @@ public class PlantController : MonoBehaviour
             GameManager.MaxPickups = getMaxPickups();
             GameManager.Pickups = getCollectedPickups();
 
-            if (GameManager.Level > 5)
+            if (GameManager.Level > 6)
             {
                 SceneManager.LoadScene("Victory");
             }
