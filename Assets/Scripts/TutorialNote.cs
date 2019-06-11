@@ -13,16 +13,15 @@ public class TutorialNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0 || Input.anyKeyDown)
+        {
+            foreach (Transform child in transform)
             {
-                foreach (Transform child in transform)
-                {
-                    child.gameObject.SetActive(false);
-                }
-
-                PlantController.IsReady = true;
-                gameObject.SetActive(false);
+                child.gameObject.SetActive(false);
             }
+
+            PlantController.IsReady = true;
+            gameObject.SetActive(false);
+        }
     }
 }

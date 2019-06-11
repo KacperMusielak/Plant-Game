@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Events;
 
 class CardinalDirection
 {
@@ -15,6 +16,12 @@ class CardinalDirection
 }
 
 public enum Swipe { None, Up, Down, Left, Right, UpLeft, UpRight, DownLeft, DownRight };
+
+[System.Serializable]
+public class SwipeEvent : UnityEvent<Swipe, Vector2>
+{
+
+}
 
 public class SwipeManager : MonoBehaviour
 {
@@ -49,27 +56,14 @@ public class SwipeManager : MonoBehaviour
 
     public delegate void OnSwipeDetectedHandler(Swipe swipeDirection, Vector2 swipeVelocity);
 
-    static OnSwipeDetectedHandler _OnSwipeDetected;
-
-    public static event OnSwipeDetectedHandler OnSwipeDetected
-    {
-        add
-        {
-            _OnSwipeDetected += value;
-            autoDetectSwipes = true;
-        }
-        remove
-        {
-            _OnSwipeDetected -= value;
-        }
-    }
+    public static SwipeEvent OnSwipeDetected = new SwipeEvent();
 
     public static Vector2 swipeVelocity;
 
     static float dpcm;
     static float swipeStartTime;
     static float swipeEndTime;
-    static bool autoDetectSwipes;
+    static bool autoDetectSwipes = true;
     static bool swipeEnded;
     static Swipe swipeDirection;
     static Vector2 firstPressPos;
@@ -116,7 +110,7 @@ public class SwipeManager : MonoBehaviour
         swipeDirection = GetSwipeDirectionByTouch(currentSwipe);
         swipeEnded = true;
 
-        if (_OnSwipeDetected != null) { _OnSwipeDetected(swipeDirection, swipeVelocity); }
+        OnSwipeDetected?.Invoke(swipeDirection, swipeVelocity);
     }
 
     static bool GetTouchInput()

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(SwipeManager))]
 public class InputController : MonoBehaviour
@@ -8,7 +9,7 @@ public class InputController : MonoBehaviour
     void Start()
     {
         SwipeManager swipeManager = GetComponent<SwipeManager>();
-        SwipeManager.OnSwipeDetected += HandleSwipe;
+        SwipeManager.OnSwipeDetected.AddListener(HandleSwipe);
     }
 
     void HandleSwipe(Swipe swipe, Vector2 swipeVelocity)
