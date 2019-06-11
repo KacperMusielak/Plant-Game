@@ -47,7 +47,7 @@ public class PlantController : MonoBehaviour
         _growTicks = MaxGrowTicks;
         _head = GetComponentInChildren<Head>();
         SwipeManager swipeManager = GetComponent<SwipeManager>();
-        SwipeManager.OnSwipeDetected += HandleSwipe;
+        SwipeManager.OnSwipeDetected.AddListener(HandleSwipe);
     }
 
     void HandleSwipe(Swipe swipe, Vector2 swipeVelocity)
@@ -84,7 +84,7 @@ public class PlantController : MonoBehaviour
         {
             EnergyBar.Energy = _growTicks;
             EnergyBar.MaxEnergy = MaxGrowTicks;
-            //GetInputVector();
+            GetInputVector();
 
             if (_timer > Speed)
             {
