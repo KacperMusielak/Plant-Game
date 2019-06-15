@@ -89,7 +89,7 @@ public class PlantController : MonoBehaviour
             if (_timer > Speed)
             {
                 _timer = 0;
-                Vector3 lastHeadPos = _head.transform.position;
+                Vector3 lastHeadPos = _head.transform.GetChild(0).position;
                 if (_growTicks > 0)
                 {
                     MovePlant();
@@ -125,7 +125,7 @@ public class PlantController : MonoBehaviour
                 Debug.Log(Level);
                 SceneManager.LoadScene("Info");
             }
-           
+
         }
     }
 
@@ -133,7 +133,6 @@ public class PlantController : MonoBehaviour
     {
         GameObject tailGameObject = Instantiate(TailPrefab, transform);
         tailGameObject.transform.position = pos;
-
         _tailList.Add(tailGameObject);
     }
 
