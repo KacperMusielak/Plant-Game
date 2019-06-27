@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5572954533324724239}
   - component: {fileID: 5572954533324724238}
   - component: {fileID: 5572954533324724236}
+  - component: {fileID: 186411287076134157}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Obstacle
@@ -50,7 +51,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -96,7 +97,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 23ccb67de4dcc374991d0ca5e6dd5874, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,3 +122,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.8
   aggroDistance: 2.25
+--- !u!114 &186411287076134157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572954533324724224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ec69ee58d5ae34281e16f05b9bef08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Frames:
+  - {fileID: 21300000, guid: 23ccb67de4dcc374991d0ca5e6dd5874, type: 3}
+  - {fileID: 21300000, guid: ffb33a79cbbc7db41b070f2e1e9894a1, type: 3}
+  - {fileID: 21300000, guid: 9080b49d6ebfd7448804e2b095a8b9e9, type: 3}
+  FramesPerSecond: 3
